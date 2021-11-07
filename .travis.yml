@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t viveklab/docker-react -f Dockerfile.dev .
+
+script:
+  - dokcer run -e CI=true viveklab/docker-react npm run test
